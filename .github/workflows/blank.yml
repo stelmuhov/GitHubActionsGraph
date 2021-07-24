@@ -36,7 +36,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, start1!
   C:
-    needs: [init2]
+    needs: [init2, B]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
