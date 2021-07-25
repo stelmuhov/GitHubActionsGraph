@@ -18,40 +18,40 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: echo Hello, world!
+  init2:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run a one-line script
         run: echo Hello, world!
   A:
     needs: [init]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Hello, start1!
   B:
     needs: [init]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Hello, start1!
-  init2:
+  C:
+    needs: [init]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, start1!
+  D:
+    needs: [init2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
   final:
     needs: [init, A, B]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run a one-line script
-        run: echo Hello, final! 
-  C:
-    needs: [init2, B]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, start1!
+        run: echo Hello, final!
