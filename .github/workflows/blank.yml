@@ -44,13 +44,31 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, start1!
   D:
+    needs: [init]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
+  E:
+    needs: [init]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
+  F:
     needs: [init2]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         run: echo Hello, start1!
   final:
-    needs: [init, A, B, C]
+    needs: [init, A, B, C, D, E]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, final!
+  final2:
+    needs: [F]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
