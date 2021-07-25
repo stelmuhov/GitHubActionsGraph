@@ -50,7 +50,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, start1!
   final:
-    needs: [init, A, B]
+    needs: [init, A, B, C]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
