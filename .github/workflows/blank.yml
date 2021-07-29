@@ -61,8 +61,26 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, start1!
+  G:
+    needs: [init2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
+  H:
+    needs: [init2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
+  J:
+    needs: [init2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, start1!
   final:
-    needs: [init, A, B, C, D, E]
+    needs: [init, A, B]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
