@@ -26,13 +26,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
   A:
-    needs: [init]
+    needs: [init, init2]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         run: echo Hello, start1!
   B:
-    needs: [init]
+    needs: [init, init2]
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
